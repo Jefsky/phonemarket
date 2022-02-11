@@ -1,0 +1,303 @@
+package cn.huateng.dao.impl;
+
+	import java.sql.Connection;
+	import java.sql.PreparedStatement;
+	import java.sql.ResultSet;
+	import java.sql.SQLException;
+	import java.util.ArrayList;
+	
+import cn.huateng.bean.Phone;
+import cn.huateng.dbc.DBConnection;
+
+	public class PhoneInfoDAOImpl {
+		public int insertPhone(Phone phone){
+			int line=0;
+			Connection conn=null;
+			PreparedStatement ppsm=null;
+			DBConnection dbconn=new DBConnection();
+			if(dbconn!=null){
+				conn=dbconn.getConn();
+				if(conn!=null){
+					String sql="insert into phone(phoneid,phonename,platform,weight,display,camera,ram,massmenory,companyid,price,quantity,picture) values(?,?,?,?,?,?,?,?,?,?,?,?)";
+					try{
+						ppsm =conn.prepareStatement(sql);
+						ppsm.setInt(1,phone.getPhoneid());	
+						ppsm.setString(2,phone.getPhonename());	
+						ppsm.setString(3,phone.getPlatform());	
+						ppsm.setString(4,phone.getWeight());	
+						ppsm.setString(5,phone.getDisplay());	
+						ppsm.setString(6,phone.getCamera());	
+						ppsm.setString(7,phone.getRam());	
+						ppsm.setString(8,phone.getMassmenory());	
+						ppsm.setInt(9,phone.getCompanyid());	
+						ppsm.setFloat(10,phone.getPrice());	
+						ppsm.setInt(11,phone.getQuantity());	
+						ppsm.setString(12,phone.getPicture());	
+						
+						line= ppsm.executeUpdate();
+						}catch(SQLException e){
+						e.printStackTrace();
+						}finally{
+							try {
+								if(ppsm!=null){
+										ppsm.close();
+									} 
+								conn.close();}
+							catch (SQLException e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+							}
+						}
+						
+				}
+			}
+			return line;
+		}
+		public ArrayList<Phone> queryPhone(){
+			ArrayList<Phone> PhoneList=new ArrayList<Phone>();
+			Connection conn=null;
+			Phone phone;
+			PreparedStatement ppsm=null;
+			ResultSet rs = null;
+			DBConnection dbconn=new DBConnection();
+				if(dbconn!=null){
+					conn=dbconn.getConn();
+				//接着进行查询操作ResultSet
+					if(conn!=null){
+						String sql="select * from phone";
+						try {
+							ppsm=conn.prepareStatement(sql);
+							rs=ppsm.executeQuery();
+							//最后把查询结果集转换为ArrayList<UserInfo>类型返回.
+							while (rs.next()){
+								phone =new Phone();
+								phone.setPhoneid(rs.getInt(1));
+								phone.setPhonename(rs.getString(2));
+								phone.setPlatform(rs.getString(3));
+								phone.setWeight(rs.getString(4));
+								phone.setDisplay(rs.getString(5));
+								phone.setCamera(rs.getString(6));
+								phone.setRam(rs.getString(7));
+								phone.setMassmenory(rs.getString(8));
+								phone.setCompanyid(rs.getInt(9));
+								phone.setPrice(rs.getFloat(10));
+								phone.setQuantity(rs.getInt(11));
+								phone.setPicture(rs.getString(12));
+								PhoneList.add(phone);
+							}
+							
+						}catch (SQLException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}finally{
+							if(rs!=null){
+								try {
+									rs.close();
+									if(ppsm!=null){
+									ppsm.close();
+									}
+									if(conn!=null){
+										conn.close();
+									}
+								} catch (SQLException e) {
+									// TODO Auto-generated catch block
+									e.printStackTrace();
+								}
+							}
+						
+						}
+				}
+			}
+			return PhoneList;	
+		}
+		public int bDeleteById(String Phoneid){
+			int line = 0;
+			Connection conn=null;
+			PreparedStatement ppsm=null;
+			DBConnection dbconn=new DBConnection();
+			if(dbconn!=null){
+				conn=dbconn.getConn();
+				if(conn!=null){
+					String sql="delete from Phone where Phoneid=?";
+					try {
+						ppsm =conn.prepareStatement(sql);
+						ppsm.setString(1,Phoneid);	
+						line=ppsm.executeUpdate();
+					} catch (SQLException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}finally{
+						try {
+						if(ppsm!=null){
+								ppsm.close();
+							} 
+							conn.close();}
+						catch (SQLException e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+							}
+						}
+				}
+			}
+			return line;
+		}
+		//修改操作，先进行一次查询操作bQueryById()，
+		//UpdatePhoneServlet修改操作，调用UpdatePhone()
+		public Phone pQueryById(String phoneid){
+			Phone Phone = new Phone();
+			Connection conn=null;
+			PreparedStatement ppsm=null;
+			ResultSet rs = null;
+			DBConnection dbconn=new DBConnection();
+				if(dbconn!=null){
+					conn=dbconn.getConn();
+					if(conn!=null){
+						String sql="select * from phone where phoneid =?";
+						try {
+							ppsm=conn.prepareStatement(sql);
+							ppsm.setString(1,phoneid);
+							rs=ppsm.executeQuery();
+							if (rs.next()){
+								phone.setPhoneid(rs.getInt(1));
+								phone.setPhonename(rs.getString(2));
+								phone.setPlatform(rs.getString(3));
+								phone.setWeight(rs.getString(4));
+								phone.setDisplay(rs.getString(5));
+								phone.setCamera(rs.getString(6));
+								phone.setRam(rs.getString(7));
+								phone.setMassmenory(rs.getString(8));
+								phone.setCompanyid(rs.getInt(9));
+								phone.setPrice(rs.getFloat(10));
+								phone.setQuantity(rs.getInt(11));
+								phone.setPicture(rs.getString(12));
+
+							}
+							
+						}catch (SQLException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}finally{
+							if(rs!=null){
+								try {
+									rs.close();
+									if(ppsm!=null){
+									ppsm.close();
+									}
+									if(conn!=null){
+										conn.close();
+									}
+								} catch (SQLException e) {
+									// TODO Auto-generated catch block
+									e.printStackTrace();
+								}
+							}
+						
+						}
+				}
+			}
+			return Phone;	
+		}
+		//然后再跳转到修改页面updatePhone.jsp[价格、数量、标志、存放地方等信息]
+		public int updatePhone(Phone Phone){
+			int line=0;
+			Connection conn=null;
+			PreparedStatement ppsm=null;
+			DBConnection dbconn=new DBConnection();
+			if(dbconn!=null){
+				conn=dbconn.getConn();
+				if(conn!=null){
+					String sql="update Phone set price = ?,quantity = ?,type = ?,place = ? where Phoneid = ?";
+					try {
+						ppsm =conn.prepareStatement(sql);
+						ppsm.setFloat(1, Phone.getPrice());
+						ppsm.setInt(2, Phone.getQuantity());
+						ppsm.setInt(3, Phone.getType());
+						ppsm.setString(4, Phone.getPlace());
+						ppsm.setString(5, Phone.getPhoneid());
+						line=ppsm.executeUpdate();
+					} catch (SQLException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}finally{
+						try {
+						if(ppsm!=null){
+								ppsm.close();
+							} 
+							conn.close();}
+						catch (SQLException e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+							}
+						}
+				}
+			}
+			return line;
+		}
+		public ArrayList<Phone> queryPhoneByType(int type){
+			ArrayList<Phone> PhoneList=new ArrayList<Phone>();
+			Connection conn=null;
+			Phone Phone;
+			PreparedStatement ppsm=null;
+			ResultSet rs = null;
+			DBConnection dbconn=new DBConnection();
+				if(dbconn!=null){
+					conn=dbconn.getConn();
+					if(conn!=null){
+						String sql="select * from Phone where type=?";
+						try {
+							ppsm=conn.prepareStatement(sql);
+							ppsm.setInt(1,type);
+							rs=ppsm.executeQuery();
+							while (rs.next()){
+								Phone =new Phone();
+								Phone.setPhoneid(rs.getString(1));
+								Phone.setPhonename(rs.getString(2));
+								Phone.setAuthor(rs.getString(3));
+								Phone.setPublisherid(rs.getInt(4));
+								Phone.setPubdate(rs.getString(5));
+								Phone.setCategory(rs.getString(6));
+								Phone.setPrice(rs.getFloat(7));
+								Phone.setContent(rs.getString(8));
+								Phone.setType(rs.getInt(9));
+								Phone.setQuantity(rs.getInt(10));
+								Phone.setPlace(rs.getString(11));
+								Phone.setPicture(rs.getString(12));
+								PhoneList.add(Phone);
+							}
+							
+						}catch (SQLException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}finally{
+							if(rs!=null){
+								try {
+									rs.close();
+									if(ppsm!=null){
+									ppsm.close();
+									}
+									if(conn!=null){
+										conn.close();
+									}
+								} catch (SQLException e) {
+									// TODO Auto-generated catch block
+									e.printStackTrace();
+								}
+							}
+						
+						}
+				}
+			}
+			return PhoneList;	
+		}
+		public int UpdatePhoneQuantity(String Phoneid, int updatenum){
+			int line = 0;
+			Phone Phone=bQueryById(Phoneid);
+			int Phonenum = Phone.getQuantity()+updatenum;
+			if(Phonenum>=0){
+				Phone.setQuantity(Phonenum);
+				line = updatePhone(Phone);
+			}
+			return line;
+		}
+	}
+

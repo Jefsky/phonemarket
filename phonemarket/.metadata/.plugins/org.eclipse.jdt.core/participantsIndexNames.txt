@@ -1,0 +1,19 @@
+INDEX VERSION 1.126
+E:\J2EE\cellphone store\phonemarket\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\81274185.index
+\phonemarket\src
+E:\新建文件夹\phonemarket\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\81274185.index
+\phonemarket\src
+E:\J2EE\cellphone store\phonemarket\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1429260343.index
+\206hwj_bookshop\src
+E:\J2EE\cellphone store\phonemarket\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1064038995.index
+\206hwj_bookshop\src
+D:\phonemarket\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2294749719.index
+\phonemarket\src
+E:\J2EE\cellphone store\phonemarket\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2294749719.index
+\phonemarket\src
+D:\phonemarket\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3670336823.index
+\phonemarket\src
+E:\新建文件夹\phonemarket\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2294749719.index
+\phonemarket\src
+E:\J2EE\cellphone store\phonemarket\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3670336823.index
+\phonemarket\src

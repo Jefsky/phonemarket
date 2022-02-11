@@ -1,0 +1,82 @@
+body{
+	margin : 0px;
+	padding : 0;
+}
+
+/* ====== Navigation Main ====== */
+div.navigation{
+	font-family:"Î¢ÈíÑÅºÚ ", cursive;
+	background-color:#009;
+	padding-top : 30px;
+	padding-bottom : 30px;
+	height:170px;
+	font-weight: bolder;
+}
+
+/* ====== Navigation Menu ====== */
+div.navigation>ul{
+	margin : 0px;
+	
+}
+
+div.navigation>ul>li{
+	list-style : none;
+	display : inline-block;
+	height : 90px;
+	width : 90px;
+	background-color : #DB542D;
+	text-align : center;
+	line-height : 90px;
+	margin-top : 2px;
+	margin-bottom : 2px;
+}
+
+div.navigation ul li a{
+	cursor : pointer;
+}
+
+div.navigation>ul>li>a{
+	position : relative;
+	display : block;
+	color:#FFF;
+	font-size : 17px;
+	text-decoration : none;
+}
+
+
+
+/* ====== Color class ======*/
+div.navigation .color1{
+	background-color : #0097aa;
+}
+
+div.navigation .color2{
+	background-color : #9f00a7;
+}
+
+div.navigation .color3{
+	background-color: #63C;
+}
+
+div.navigation .color4{
+	background-color : #bb1d48;
+}
+
+/* ====== title span ====== */
+
+div.navigation span{
+	position : relative;
+	font-family : 'Open Sans';
+	font-weight : 300;
+	font-size : 16px;
+	margin-left : 40px;
+	font-size : 28px;
+	color : white;
+}
+
+
+
+#color{ margin-left:40px;}
+#color li{  float:left; margin:0 5px;}
+div.navigation ul li a:hover{ background-color: #CFF; color:#00C;}
+#logo{ width:100%;}

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Metro风格jQuery导航菜单 - 16素材网</title>
+<link rel="stylesheet" type="text/css" href="../css/element_style.css">
+<a href="../js/element_script.js">element_script.js</a>
+<a href="../js/jquery.min.js">jquery.min.js</a>
+</head>
+<body>
+
+<div class = "navigation"> <!-- Begin div.navigation -->
+	<!-- Begin Navigation -->
+	<div>
+		<span>Home</span> <!-- Title -->
+	</div>
+	
+	<ul> <!-- Begin Navigation Content -->
+		<li class = "color1"><a href = "index.html">Home</a></li>
+		
+		<li><a>Settings</a>
+			<ul> <!-- Navigation Sub-Content for Settings-->
+				<li><a href = "#">Settings 1</a></li>
+				<li><a href = "#">Settings 2</a></li>
+				<li><a href = "#">Settings 3</a></li>
+				<li><a href = "#">Settings 4</a></li>
+				<li><a href = "#">Settings 5</a></li>
+				<li><a href = "#">Settings 6</a></li>
+				<li><a href = "#">Settings 7</a></li>
+			</ul> <!-- /End Navigation Sub-Content for Settings -->
+		</li>
+		
+		<li class = "color2"><a>Gallery</a>
+			<ul> <!-- Navigation Sub-Content for Gallery -->
+				<li><a href = "#">Apps</a></li>
+				<li><a href = "#">Photo</a></li>
+				<li><a href = "#">Music</a></li>
+				<li><a href = "#">Graphics</a></li>
+				<li><a href = "#">Sports</a></li>
+			</ul> <!-- /End Navigation Sub-Content for Gallery -->
+		</li>
+		
+		<li class = "color3"><a href = "#">Contact</a></li>
+		
+		<li class = "color4"><a href = "#">About</a></li>
+	
+	</ul> <!-- /End Navigation Content -->
+	
+</div> <!-- /End div.navigation-->
+<div style="text-align:center;clear:both">
+<p>适用浏览器：IE8、360、FireFox、Chrome、Safari、Opera、傲游、搜狗、世界之窗. </p>
+<p>来源：<a href="http://www.16sucai.com/" target="_blank">16素材网</a></p>
+</div>
+</body>
+</html>

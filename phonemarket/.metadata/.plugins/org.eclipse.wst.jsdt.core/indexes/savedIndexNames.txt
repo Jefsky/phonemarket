@@ -1,0 +1,7 @@
+INDEX VERSION 1.3+E:\J2EE\phonemarket\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+2939255044.index
+441126805.index
+2817086658.index
+1005419587.index
+4281614103.index
+225630133.index

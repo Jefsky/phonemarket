@@ -1,0 +1,47 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<%
+	String op = request.getParameter("op");
+	if("exit".equals(op)){
+		session.removeAttribute("userid");
+	}
+	String error = request.getParameter("error");
+	if(error!=null&&"queryUP_er".equals(error)){
+%>
+	<script type="text/javascript">
+		alert("用户名或者密码错误");
+	</script>
+<%
+	}
+	if(error!=null&&"pwedit_error".equals(error)){
+%>
+	<script type="text/javascript">
+		alert("用户密码修改失败");
+	</script>
+<%
+	}
+	if(error!=null&&"userInfoEdit_error".equals(error)){
+%>
+	<script type="text/javascript">
+		alert("用户个人信息修改失败");
+	</script>
+<%
+	}
+%>
+
+<div >
+					<jsp:include page="top.jsp" />			
+</div>
+
+<div>
+					<jsp:include page="bottom.jsp" />			
+</div>
+</body>
+</html>
